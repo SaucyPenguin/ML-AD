@@ -141,32 +141,3 @@ def rank_clusters(clusters_scores_dict):
     with open("clusters_and_score.pkl", "wb") as f1:
         pickle.dump(clusters_and_score, f1)
     return ranked_clusters, clusters_and_score
-
-
-with open("top_indices.pkl", "rb") as F:
-    TOP_INDICES = pickle.load(F)
-with open("top_feature_scores.pkl", "rb") as F1:
-    TOP_FEATURE_SCORES = pickle.load(F1)
-with open("snp_list.pkl", "rb") as F2:
-    SNP_LIST = pickle.load(F2)
-with open("snp_ref.pkl", "rb") as F3:
-    SNP_REF = pickle.load(F3)
-with open("features_and_scores.pkl", "rb") as F4:
-    FEATURES_AND_SCORES = pickle.load(F4)
-# with open("cluster_map.pkl", "rb") as F5:
-#     CLUSTER_MAP = pickle.load(F5)
-# with open("cluster_scores_dict.pkl", "rb") as F6:
-#     CLUSTER_SCORES_DICT = pickle.load(F6)
-
-CLUSTER_MAP = cluster("important_snps.bed")
-CLUSTER_SCORES_DICT = find_important_clusters(CLUSTER_MAP, FEATURES_AND_SCORES)
-
-large_clusters = []
-for key, val in CLUSTER_SCORES_DICT.items():
-    if len(val) > 1:
-        large_clusters.append(key)
-print(large_clusters)
-print(len(large_clusters))
-
-# print(heuristic(CLUSTER_SCORES_DICT["97"], 0.8, 0.2))
-print(rank_clusters(CLUSTER_SCORES_DICT)[1])
