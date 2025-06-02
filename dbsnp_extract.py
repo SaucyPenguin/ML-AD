@@ -84,21 +84,3 @@ def fetch_snps(snp_dict):
         pickle.dump(snp_ref, f)
     return snp_ref
 
-
-with open("snp_list.pkl", "rb") as F:
-    SNP_LIST = pickle.load(F)
-
-with open("snp_dict.pkl", "rb") as F2:
-    SNP_DICT = pickle.load(F2)
-
-with open("snp_ref.pkl", "rb") as F3:
-    SNP_REF = pickle.load(F3)
-
-# Result summary
-print(f"Total SNPs processed: {len(SNP_REF)}")
-print(f"Example SNP mappings (first 10):")
-for snp, info in list(SNP_REF.items())[:10]:
-    print(f"{snp}: {info}")
-
-
-
