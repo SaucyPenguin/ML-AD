@@ -1,5 +1,5 @@
 # ML-AD
-These are the files containing the functions used throughout the project. There are a couple of things that are important to note:
+This repository is for the study "Using Machine Learning to Identify Specific Genes Related to the Onset and Progression of Alzheimer’s Disease", conducted in the Biotechnology Research Lab at TJHSST. These are the files containing the files used throughout the project. There are a couple of things that are important to note:
 
 1) The workflow is as follows: adni_file_extract.py --> dbsnp_extract.py --> neural_net.py --> clustering.py --> mapping.py.
 
