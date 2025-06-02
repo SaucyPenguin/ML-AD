@@ -216,16 +216,3 @@ def run_net(model, epochs, lr, train_loader, test_loader):
             print(f"{epoch + 1} Epochs run. Best AUC: {best_auc:.4f}")
             return best_auc
     return best_auc
-
-
-# with open("feature_dict.pkl", "rb") as F:
-#     FEATURE_DICT = pickle.load(F)
-# with open("snp_dict.pkl", "rb") as F1:
-#     SNP_LIST = pickle.load(F1)
-#
-# X, Y = create_npys(FEATURE_DICT)
-# X_SELECTED = feature_selection(X, Y, 1000)
-# X_TENSOR, Y_TENSOR = create_tensors(X_SELECTED, Y)
-# TRAIN_LOADER, TEST_LOADER = set_params(X_TENSOR, Y_TENSOR)
-# MODEL = create_model(X_SELECTED)
-# run_net(MODEL, 1000, 0.0001, TRAIN_LOADER, TEST_LOADER)
