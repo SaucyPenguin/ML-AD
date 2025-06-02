@@ -153,15 +153,3 @@ def export_cluster_summary(clusters_and_score):
         for _, cluster_id, chrom, rsids, starts, ends, score in rows:
             out.write("\t".join([cluster_id, chrom, rsids, starts, ends, score]) + "\n")
     return rows
-
-
-print(gtf_to_bed("Homo_sapiens.GRCh37.87.gtf"))
-with open("ranked_clusters.pkl", "rb") as F:
-    RANKED_CLUSTERS = pickle.load(F)
-with open("clusters_and_score.pkl", "rb") as F1:
-    CLUSTERS_AND_SCORE = pickle.load(F1)
-with open("features_and_scores.pkl", "rb") as F2:
-    FEATURES_AND_SCORES = pickle.load(F2)
-print(intersect_snps(RANKED_CLUSTERS, CLUSTERS_AND_SCORE))
-print(export_snp_summary(FEATURES_AND_SCORES))
-print(export_cluster_summary(CLUSTERS_AND_SCORE))
